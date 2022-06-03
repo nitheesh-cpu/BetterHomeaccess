@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, session
 import requests
 from bs4 import BeautifulSoup
+from .models import User
 
 auth = Blueprint('auth', __name__)
 
@@ -21,11 +22,6 @@ def login():
         'tempUN': '',
         'tempPW': '',
         'LogOnDetails.Password': ''
-    }
-
-    headers = {
-        'Accept-Language' : 'en-US,en;q=0.5',
-        'User-Agent':'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.141 Safari/537.36'
     }
 
     if request.method == 'POST':
