@@ -1,18 +1,17 @@
-from flask import Flask, render_template
-
-app = Flask(__name__)
+from flask import Flask
 
 
-@app.route('/')
-def hello():
-    return 'Hello, world'
+def main():
+    app = Flask(__name__)
+    app.config['SECRET_KEY'] = 'hdsfgssdfgdfg'
 
+    from views import views
+    from auth import auth
 
-@app.route('/test')
-def test():
-    return 'Test'
+    app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(auth, url_prefix='/')
 
-@app.route('/result')
-def result():
-   dict = {'phy':50,'che':60,'maths':70}
-   return render_template('result.html', result = dict)
+    app.run(debug=True)
+
+if __name__ == '__main__':
+    main()

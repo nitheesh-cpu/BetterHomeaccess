@@ -1,0 +1,82 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 style="padding-top:15px;padding-bottom:5px;">Class Averages</h1>
+
+<div class="accordion" id="accordionExample">
+  {% for i in range( content['classes']|length ) %}
+
+  <div class="accordion-item">
+      <div class="accordion-header" id="heading{{i}}">
+        <h1 class="mb-0 mt-0">
+          <button class="accordion-button btn btn-link btn-lg text-dark font-weight-bold h1" type="button" data-toggle="collapse" data-target="#collapse{{i}}" aria-expanded="true" aria-controls="collapse{{i}}">
+            {{content['classes'][i]}} -  {{content['averages'][i]}}
+          </button>
+        </h1>
+        {% if content['averages'][i]|int >= 90 %}
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: {{content['averages'][i]}}%" aria-valuenow="{{content['averages'][i]}}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% elif content['averages'][i]|int >= 80 %}
+        <div class="progress">
+          <div class="progress-bar bg-warning" role="progressbar" style="width: {{content['averages'][i]}}%" aria-valuenow="{{content['averages'][i]}}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% else %}
+        <div class="progress">
+          <div class="progress-bar bg-danger" role="progressbar" style="width: {{content['averages'][i]}}%" aria-valuenow="{{content['averages'][i]}}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% endif %}
+      </div>
+      <div id="collapse{{i}}" class="collapse hide" aria-labelledby="heading{{i}}">
+      <div class="accordion-body">
+        <table class="table w-auto small">
+        {% for row in range( content['assignment'][i]|length ) %}
+          {% if row|int == 0 %}
+            <thead>
+              <tr>
+                {% for element in content['assignment'][i][row] %}
+                  <th scope="col">{{element}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+          {% else %}
+              <tr>
+                {% for element in content['assignment'][i][row] %}
+                  <td>{{element}}</td>
+                {%endfor%}
+              </tr>
+          {% endif %}
+            </tbody>
+        {% endfor %}
+        </table>
+
+
+        <table class="table w-auto small">
+        {% for row in range( content['categories'][i]|length ) %}
+          {% if row|int == 0 %}
+            <thead>
+              <tr>
+                {% for element in content['categories'][i][row] %}
+                  <th scope="col">{{element}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+          {% else %}
+              <tr>
+                {% for element in content['categories'][i][row] %}
+                  <td>{{element}}</td>
+                {%endfor%}
+              </tr>
+          {% endif %}
+            </tbody>
+        {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
