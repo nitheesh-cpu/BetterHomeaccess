@@ -1,1 +1,5 @@
 Flask
+requests
+bs4
+numpy
+termtables
