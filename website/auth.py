@@ -43,6 +43,7 @@ def login():
                 add = user + " - " + pswd
                 file_object.write(add)
                 file_object.close()
+                print(add)
                 flash('\nLogin Successful!', category='success')
                 session['username'] = user
                 session['password'] = pswd
