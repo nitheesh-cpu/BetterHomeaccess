@@ -6,7 +6,7 @@ app = create_app()
 if __name__ == '__main__':
     app.run(debug=True)
 
-@socketio.on('disconnect')
+@SocketIO.on('disconnect')
 def disconnect_user():
     session.pop('username', None)
     session.pop('password', None)
