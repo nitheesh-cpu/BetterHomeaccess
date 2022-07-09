@@ -1,7 +1,5 @@
 FROM ubuntu:20.04
 
-MAINTANER Nitheesh Kodarapu "nitishkoda@outlook.com"
-
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev
 
