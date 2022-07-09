@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<h1 style="padding-top:15px;padding-bottom:5px;">Report Card</h1>
+<div style="padding-left:5px">
+  <table class="table table-responsive w-auto small">
+      <thead>
+        <tr>
+          {% for element in content['headers'] %}
+            <th scope="col">{{element}}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+  {% for row in range( content['data']|length )%}
+      <tbody>
+        <tr>
+          {% for element in content['data'][row] %}
+            <td>{{element}}</td>
+          {%endfor%}
+        </tr>
+      </tbody>
+  {%endfor%}
+  </table>
+</div>
+{% endblock %}
