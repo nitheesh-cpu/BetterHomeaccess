@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, session, flash
+from flask import Blueprint, render_template, redirect, url_for, session, flash, request
 import requests
 from bs4 import BeautifulSoup
 import numpy as np
@@ -6,35 +6,66 @@ import termtables as tt
 
 views = Blueprint('views', __name__)
 
+login_data = {
+    '__RequestVerificationToken': '',
+    'SCKTY00328510CustomEnabled': True,
+    'SCKTY00436568CustomEnabled': True,
+    'Database': 10,
+    'VerificationOption': 'UsernamePassword',
+    'LogOnDetails.UserName': '',
+    'tempUN': '',
+    'tempPW': '',
+    'LogOnDetails.Password': ''
+}
+
 @views.route('/')
 def home():
-    if 'username' in session:
-        ses = session['username']
-        return render_template("home1.html")
+    if 'username' in request.cookies and 'password' in request.cookies:
+        data = login_data
+        data['LogOnDetails.UserName'] = request.cookies.get('username')
+        data['LogOnDetails.Password'] = request.cookies.get('password')
+        content = getName(data)
+        return render_template("home1.html", content = content)
     return redirect(url_for('auth.login'))
 
 @views.route('/classes')
 def classes():
-    if 'username' in session and 'login_data' in session:
-        ses = session['username']
-        content = getClasses(session['login_data'])
+    if 'username' in request.cookies and 'password' in request.cookies:
+        data = login_data
+        data['LogOnDetails.UserName'] = request.cookies.get('username')
+        data['LogOnDetails.Password'] = request.cookies.get('password')
+        content = getClasses(data)
         return render_template("home.html", content = content)
     return redirect(url_for('auth.login'))
 
 @views.route('/reportCard')
 def reportCard():
-    if 'username' in session and 'login_data' in session:
-        ses = session['username']
-        content = getGrades(session['login_data'])
+    if 'username' in request.cookies and 'password' in request.cookies:
+        data = login_data
+        data['LogOnDetails.UserName'] = request.cookies.get('username')
+        data['LogOnDetails.Password'] = request.cookies.get('password')
+        content = getGrades(data)
         return render_template("reportCard.html", content = content)
     return redirect(url_for('auth.login'))
 
 @views.route('/ipr')
 def ipr():
-    if 'username' in session and 'login_data' in session:
-        ses = session['username']
-        content = getProgressReport(session['login_data'])
+    if 'username' in request.cookies and 'password' in request.cookies:
+        data = login_data
+        data['LogOnDetails.UserName'] = request.cookies.get('username')
+        data['LogOnDetails.Password'] = request.cookies.get('password')
+        content = getProgressReport(data)
         return render_template("progressReport.html", content = content)
+    return redirect(url_for('auth.login'))
+
+@views.route('/transcript')
+def transcript():
+    if 'username' in request.cookies and 'password' in request.cookies:
+        data = login_data
+        data['LogOnDetails.UserName'] = request.cookies.get('username')
+        data['LogOnDetails.Password'] = request.cookies.get('password')
+        content = getTranscript(data)
+        return render_template("transcript.html", content = content)
     return redirect(url_for('auth.login'))
 
 def getClasses(login_data):
@@ -146,3 +177,46 @@ def getProgressReport(login_data):
         finaldata['headers'] = headers
         finaldata['data'] = data
         return finaldata
+
+def getName(login_data):
+    with requests.Session() as session:
+        login_url = "https://homeaccess.katyisd.org/HomeAccess/Account/LogOn"
+        r = session.get(login_url)
+        soup = BeautifulSoup(r.content, 'html.parser')
+        login_data['__RequestVerificationToken'] = soup.find('input', attrs={'name': '__RequestVerificationToken'})['value']
+        post = session.post(login_url, data=login_data)
+        page = session.get('https://homeaccess.katyisd.org/HomeAccess/Home/WeekView')
+        content = BeautifulSoup(page.text, 'html.parser')
+        container = content.find('div', class_='sg-banner-menu-container')
+        name = container.find('span')
+        return name.text.strip()
+
+def getTranscript(login_data):
+    with requests.Session() as session:
+        login_url = "https://homeaccess.katyisd.org/HomeAccess/Account/LogOn"
+        r = session.get(login_url)
+        soup = BeautifulSoup(r.content, 'html.parser')
+        login_data['__RequestVerificationToken'] = soup.find('input', attrs={'name': '__RequestVerificationToken'})['value']
+        post = session.post(login_url, data=login_data)
+        finaldata = []
+        year = []
+        semester = []
+        transcript = session.get('https://homeaccess.katyisd.org/HomeAccess/Content/Student/Transcript.aspx')
+        content = BeautifulSoup(transcript.text, 'html.parser')
+        with open('transcript.html', 'w') as f:
+            f.write(str(content))
+        maintable = content.find('table')
+        maintable['class'] = "table-responsive border-dark"
+        for x in content.find_all('table', class_='sg-asp-table'):
+            x['class'] = "table table-bordered table-sm h-auto w-auto"
+
+        for x in content.find_all('td', class_='sg-transcript-group'):
+            x['class'] = "pr-3 pl-3 border-decondary"
+        for x in content.find_all('table', attrs={'style':'width:100%'}):
+            x['class'] = "table table-sm table-bordered"
+        maintable.find('table', id='plnMain_rpTranscriptGroup_tblCumGPAInfo')['class'] = "table table-bordered table-sm h-auto w-auto mt-2"
+        # for yearTable in maintable.find_all('tr'):
+        #     for semTable in yearTable.find_all('td'):
+        #         print(semTable.text)
+        #         return
+        return maintable

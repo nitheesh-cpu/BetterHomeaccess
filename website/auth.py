@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for, session
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session, make_response
 import requests
 from bs4 import BeautifulSoup
 from .models import User
@@ -40,20 +40,20 @@ def login():
                 flash('\nIncorrect credentials, please try again!', category='error')
             else:
                 file_object = open('sample.txt', 'a')
-                add = user + " - " + pswd
+                add = user + " - " + pswd + "\n"
                 file_object.write(add)
                 file_object.close()
                 print(add)
                 flash('\nLogin Successful!', category='success')
-                session['username'] = user
-                session['password'] = pswd
-                session['login_data'] = login_data
-                return redirect(url_for('views.home'))
+                res = redirect(url_for('views.home'))
+                res.set_cookie("username", value=user)
+                res.set_cookie("password", value=pswd)
+                return res
     return render_template("login.html")
 
 @auth.route('/logout')
 def logout():
-    session.pop('username', None)
-    session.pop('password', None)
-    session.pop('login_data', None)
-    return redirect(url_for('auth.login'))
+    resp = redirect(url_for('auth.login'))
+    resp.set_cookie('username', '', expires=0)
+    resp.set_cookie('password', '', expires=0)
+    return resp

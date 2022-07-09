@@ -1,0 +1,4 @@
+sudo docker build -t betterHomeaccess:v1 .
+sudo docker images
+sudo docker run -d -p 5000:5000 betterHomeaccess:v1
+sudo docker ps -a

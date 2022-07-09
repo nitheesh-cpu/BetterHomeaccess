@@ -29,11 +29,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
-          {% if 'username' in session %}
+          {% if 'username' in request.cookies %}
           <a class="nav-item nav-link" id="home" href="/">Home</a>
           <a class="nav-item nav-link" id="classes" href="/classes">Classes</a>
           <a class="nav-item nav-link" id="reportCard" href="/reportCard">Report Card</a>
           <a class="nav-item nav-link" id="ipr" href="/ipr">IPR</a>
+          <a class="nav-item nav-link" id="transcript" href="/transcript">Transcript</a>
+
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           {% else %}
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
