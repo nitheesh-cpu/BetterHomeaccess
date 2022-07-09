@@ -8,3 +8,4 @@ requests==2.25.1
 termtables==0.2.4
 Flask-SocketIO==5.2.0
 heroku-flask==0.0.1
+flask-heroku==0.1.9
