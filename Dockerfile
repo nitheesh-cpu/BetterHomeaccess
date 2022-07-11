@@ -1,9 +1,10 @@
-FROM alpine:latest
+FROM python:3-alpine3.9
 
 RUN apk add --no-cache --update \
     python3 python3-dev gcc \
     gfortran musl-dev \
     libffi-dev openssl-dev
+RUN apk add --no-cache py3-numpy
 RUN apk add py3-pip
 
 # We copy just the requirements.txt first to leverage Docker cache
