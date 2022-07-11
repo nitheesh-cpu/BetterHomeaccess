@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+
+<html>
+<head><title>
+	HomeAccess
+</title>
+<link href="/HomeAccess/Stylesheets/Themes/custom-theme/jquery?v=khU3GP_ixo8tMiLwXJEqkRywEE1c7SBpfpbj4KSDyXA1" rel="Stylesheet" type="text/css"/>
+<link href="../../eSchoolPLUSResource/GetEmbeddedStyle?file=CrossSite" rel="Stylesheet"/>
+<link href="../../eSchoolPLUSResource/GetEmbeddedStyle?file=ComboBox" rel="Stylesheet"/>
+<link href="../../Stylesheets/Common/font-awesome.css" rel="Stylesheet"/>
+<link href="../../Stylesheets/Site.css" rel="Stylesheet"/>
+<link href="../../Stylesheets/Frame/Frame.css" rel="stylesheet"/>
+<link href="../../Media/Themes/Base/Common/favicon.ico" rel="SHORTCUT ICON"/>
+<style>
+        .sg-asp-table-header-row,
+        .ui-jqgrid-view .ui-jqgrid-hdiv, 
+        .ui-jqgrid tr.ui-jqgrid-labels th  {
+	        background-color: #00427c;
+            color: #FFFFFF;
+        }
+    </style>
+<script src="/HomeAccess/Scripts/libs/jquery?v=kFkgd6hNofX_b_JGNSXAqVYLW6XzxJEd8j1YdcwKx3I1" type="text/javascript"></script>
+<script src="../../Scripts/libs/modernizr-2.8.3.js" type="text/javascript"></script>
+<script src="../../Scripts/Trirand/ui.multiselect.js" type="text/javascript"></script>
+<script src="../../Scripts/Trirand/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="../../Scripts/Trirand/jquery.jqGrid.js" type="text/javascript"></script>
+<script src="../../Scripts/libs/json2.js" type="text/javascript"></script>
+<script src="../../eSchoolPLUSResource/GetEmbeddedScript?file=SungardCommon" type="text/javascript"></script>
+<script src="../../eSchoolPLUSResource/GetEmbeddedScript?file=Combobox" type="text/javascript"></script>
+<script type="text/javascript">
+        $(function () {
+            parseForComboBoxes();
+        });
+    </script>
+<script type="text/javascript">
+        $(SunGard.Common.Init('/HomeAccess/'));
+    </script>
+<script src="OpenClassPopUp.js" type="text/javascript"></script>
+<script type="text/javascript">
+        function PrintGPADetailReport() {
+            
+            window.open("../../Grades/PrintGPADetailReport");
+            return false;
+        }
+    </script>
+<script src="AssignmentsFromRCPopUp.js" type="text/javascript"></script>
+<script src="../Common/Validation.js" type="text/javascript"></script>
+<link href="../../StyleSheets/ReportCard/ReportCards.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="sg-main-content" id="MainContent">
+<div class="sg-hac-content">
+<form action="./Transcript.aspx" id="fmMain" method="post">
+<input id="__VIEWSTATE" name="__VIEWSTATE" type="hidden" value="uaIa10TbF2LqyYwte0oiM2xBSPFZqPPW4pTiaCKsssUPoB4IaddRXGHs1je6ilSxHFXdFI4lPWVcKiNppSI8yweC9/DYv6DP9LRKomNABLnaSGl5pWPNHunXe8VzCe+zg1XNQKDw3cIArnvQgRq/e7/FW14Mlhhxzoy0lUA2eRHxbuTUv2Xk8fWmjFKLOQbm"/>
+<input id="__VIEWSTATEGENERATOR" name="__VIEWSTATEGENERATOR" type="hidden" value="ECC4EA3A"/>
+<input id="__EVENTVALIDATION" name="__EVENTVALIDATION" type="hidden" value="xJpbSJiRyk0MsmjUzkuDk5/pedNmR2aJo4iM6Kup0Y+M3XFqfPCHabWIuLB3nWkTyW24FTGIGaYTjwWOHlNA6FisU0AXA/9wMBusOIQ4MVk2OSHWy23pKSEBKLHdBH90iWWI46KHNgx/V0ewqjT4eL7OmgiZsCQLzNteq0Lp4rw="/>
+<div class="sg-header">
+<input id="plnMain_hdnTitle" name="ctl00$plnMain$hdnTitle" type="hidden"/>
+</div>
+<div class="sg-content-grid">
+<div class="sg-content-grid-container sg-container-content">
+<span id="plnMain_lblGroupCourses">Group Courses By: </span>
+<select class="sg-combobox" id="plnMain_ddlGroupCourses" name="ctl00$plnMain$ddlGroupCourses">
+<option selected="selected" value="T">Term</option>
+<option value="D"></option>
+</select>
+</div>
+<table><tr>
+<td class="sg-transcript-group">
+<table style="width:100%">
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblYear_0"><b>Year:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblYearValue_0">2018-2019 School Year</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroup_0"><b>Term:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroupValue_0">1</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGrade_0"><b>Grade:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGradeValue_0">07</span></td>
+</tr>
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblBuilding_0"><b>Building:</b></span></td>
+<td colspan="3"><span id="plnMain_rpTranscriptGroup_lblBuildingValue_0">Beckendorff Junior High</span></td>
+</tr>
+</table>
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_rpTranscriptGroup_dgCourses_0" rules="all" width="100%">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>S1</td><td>Credit</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03100500 - 1    </td><td>ALG 1</td><td align="center">93        </td><td align="right">0.5000</td>
+</tr>
+</table>
+<table style="float:right">
+<tr>
+<td></td>
+<td><label id="plnMain_rpTranscriptGroup_lblGPAValue_0"></label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditHeader_0">Total Credit:</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditValue_0">0.5000</label></td>
+</tr>
+</table><br/><br/>
+</td>
+<td class="sg-transcript-group">
+<table style="width:100%">
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblYear_1"><b>Year:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblYearValue_1">2018-2019 School Year</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroup_1"><b>Term:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroupValue_1">2</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGrade_1"><b>Grade:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGradeValue_1">07</span></td>
+</tr>
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblBuilding_1"><b>Building:</b></span></td>
+<td colspan="3"><span id="plnMain_rpTranscriptGroup_lblBuildingValue_1">Beckendorff Junior High</span></td>
+</tr>
+</table>
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_rpTranscriptGroup_dgCourses_1" rules="all" width="100%">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>S2</td><td>Credit</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03100500 - 1    </td><td>ALG 1</td><td align="center">92        </td><td align="right">0.5000</td>
+</tr>
+</table>
+<table style="float:right">
+<tr>
+<td></td>
+<td><label id="plnMain_rpTranscriptGroup_lblGPAValue_1"></label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditHeader_1">Total Credit:</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditValue_1">0.5000</label></td>
+</tr>
+</table><br/><br/>
+</td>
+</tr><tr>
+<td class="sg-transcript-group">
+<table style="width:100%">
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblYear_2"><b>Year:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblYearValue_2">2019-2020 School Year</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroup_2"><b>Term:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroupValue_2">1</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGrade_2"><b>Grade:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGradeValue_2">08</span></td>
+</tr>
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblBuilding_2"><b>Building:</b></span></td>
+<td colspan="3"><span id="plnMain_rpTranscriptGroup_lblBuildingValue_2">Beckendorff Junior High</span></td>
+</tr>
+</table>
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_rpTranscriptGroup_dgCourses_2" rules="all" width="100%">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>S1</td><td>Credit</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03100700 - 1    </td><td>GEOM</td><td align="center">93        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>13036200 - 1    </td><td>PRAPPENG</td><td align="center">97        </td><td align="right">0.5000</td>
+</tr>
+</table>
+<table style="float:right">
+<tr>
+<td></td>
+<td><label id="plnMain_rpTranscriptGroup_lblGPAValue_2"></label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditHeader_2">Total Credit:</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditValue_2">1.0000</label></td>
+</tr>
+</table><br/><br/>
+</td>
+<td class="sg-transcript-group">
+<table style="width:100%">
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblYear_3"><b>Year:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblYearValue_3">2019-2020 School Year</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroup_3"><b>Term:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroupValue_3">2</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGrade_3"><b>Grade:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGradeValue_3">08</span></td>
+</tr>
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblBuilding_3"><b>Building:</b></span></td>
+<td colspan="3"><span id="plnMain_rpTranscriptGroup_lblBuildingValue_3">Beckendorff Junior High</span></td>
+</tr>
+</table>
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_rpTranscriptGroup_dgCourses_3" rules="all" width="100%">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>S2</td><td>Credit</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03100700 - 1    </td><td>GEOM</td><td align="center">96        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>13036200 - 1    </td><td>PRAPPENG</td><td align="center">98        </td><td align="right">0.5000</td>
+</tr>
+</table>
+<table style="float:right">
+<tr>
+<td></td>
+<td><label id="plnMain_rpTranscriptGroup_lblGPAValue_3"></label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditHeader_3">Total Credit:</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditValue_3">1.0000</label></td>
+</tr>
+</table><br/><br/>
+</td>
+</tr><tr>
+<td class="sg-transcript-group">
+<table style="width:100%">
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblYear_4"><b>Year:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblYearValue_4">2020-2021 School Year</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroup_4"><b>Term:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroupValue_4">1</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGrade_4"><b>Grade:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGradeValue_4">09</span></td>
+</tr>
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblBuilding_4"><b>Building:</b></span></td>
+<td colspan="3"><span id="plnMain_rpTranscriptGroup_lblBuildingValue_4">Seven Lakes HS</span></td>
+</tr>
+</table>
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_rpTranscriptGroup_dgCourses_4" rules="all" width="100%">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>S1</td><td>Credit</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03220100 - 1    </td><td>ENG 1</td><td align="center">90        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03100600 - 1    </td><td>ALG 2</td><td align="center">91        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03440100 - 1    </td><td>SPAN 1</td><td align="center">96        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03010200 - 1    </td><td>BIO</td><td align="center">91        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03320100 - 1    </td><td>W GEO</td><td align="center">91        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>PES00055 - 1    </td><td>PEITS</td><td align="center">100       </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>A3580110 - 1    </td><td>APTACSAM</td><td align="center">96        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>A3580120 - 1    </td><td>APTACSAL</td><td align="center">96        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03350100 - 2    </td><td>PSYCH</td><td align="center">96        </td><td align="right">0.5000</td>
+</tr>
+</table>
+<table style="float:right">
+<tr>
+<td></td>
+<td><label id="plnMain_rpTranscriptGroup_lblGPAValue_4"></label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditHeader_4">Total Credit:</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditValue_4">4.5000</label></td>
+</tr>
+</table><br/><br/>
+</td>
+<td class="sg-transcript-group">
+<table style="width:100%">
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblYear_5"><b>Year:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblYearValue_5">2020-2021 School Year</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroup_5"><b>Term:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroupValue_5">2</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGrade_5"><b>Grade:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGradeValue_5">09</span></td>
+</tr>
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblBuilding_5"><b>Building:</b></span></td>
+<td colspan="3"><span id="plnMain_rpTranscriptGroup_lblBuildingValue_5">Seven Lakes HS</span></td>
+</tr>
+</table>
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_rpTranscriptGroup_dgCourses_5" rules="all" width="100%">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>S2</td><td>Credit</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03220100 - 1    </td><td>ENG 1</td><td align="center">91        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03100600 - 1    </td><td>ALG 2</td><td align="center">97        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03440100 - 1    </td><td>SPAN 1</td><td align="center">96        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03010200 - 1    </td><td>BIO</td><td align="center">96        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03320100 - 1    </td><td>W GEO</td><td align="center">92        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>PES00055 - 1    </td><td>PEITS</td><td align="center">100       </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>A3580110 - 1    </td><td>APTACSAM</td><td align="center">97        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>A3580120 - 1    </td><td>APTACSAL</td><td align="center">97        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>A3350100 - 1    </td><td>APPSYCH</td><td align="center">95        </td><td align="right">0.5000</td>
+</tr>
+</table>
+<table style="float:right">
+<tr>
+<td></td>
+<td><label id="plnMain_rpTranscriptGroup_lblGPAValue_5"></label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditHeader_5">Total Credit:</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditValue_5">4.5000</label></td>
+</tr>
+</table><br/><br/>
+</td>
+</tr><tr>
+<td class="sg-transcript-group">
+<table style="width:100%">
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblYear_6"><b>Year:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblYearValue_6">2021-2022 School Year</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroup_6"><b>Term:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroupValue_6">1</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGrade_6"><b>Grade:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGradeValue_6">10</span></td>
+</tr>
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblBuilding_6"><b>Building:</b></span></td>
+<td colspan="3"><span id="plnMain_rpTranscriptGroup_lblBuildingValue_6">Seven Lakes HS</span></td>
+</tr>
+</table>
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_rpTranscriptGroup_dgCourses_6" rules="all" width="100%">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>S1</td><td>Credit</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03040000 - 1    </td><td>CHEM</td><td align="center">93        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03101100 - 1    </td><td>PRE CALC</td><td align="center">90        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03220200 - 1    </td><td>ENG 2</td><td align="center">88        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03340400 - 1    </td><td>W HIST</td><td align="center">90        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03440200 - 1    </td><td>SPAN 2</td><td align="center">93        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>N1290012 - 1    </td><td>LDWRTY</td><td align="center">96        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03580350 - 1    </td><td>TACS3</td><td align="center">93        </td><td align="right">0.5000</td>
+</tr>
+</table>
+<table style="float:right">
+<tr>
+<td></td>
+<td><label id="plnMain_rpTranscriptGroup_lblGPAValue_6"></label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditHeader_6">Total Credit:</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditValue_6">3.5000</label></td>
+</tr>
+</table><br/><br/>
+</td>
+<td class="sg-transcript-group">
+<table style="width:100%">
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblYear_7"><b>Year:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblYearValue_7">2021-2022 School Year</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroup_7"><b>Term:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGroupValue_7">2</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGrade_7"><b>Grade:</b></span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGradeValue_7">10</span></td>
+</tr>
+<tr>
+<td><span id="plnMain_rpTranscriptGroup_lblBuilding_7"><b>Building:</b></span></td>
+<td colspan="3"><span id="plnMain_rpTranscriptGroup_lblBuildingValue_7">Seven Lakes HS</span></td>
+</tr>
+</table>
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_rpTranscriptGroup_dgCourses_7" rules="all" width="100%">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>S2</td><td>Credit</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03040000 - 1    </td><td>CHEM</td><td align="center">94        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03101100 - 1    </td><td>PRE CALC</td><td align="center">93        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03220200 - 1    </td><td>ENG 2</td><td align="center">86        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03340400 - 1    </td><td>W HIST</td><td align="center">90        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03440200 - 1    </td><td>SPAN 2</td><td align="center">92        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03810100 - 1    </td><td>HLTH ED</td><td align="center">98        </td><td align="right">0.5000</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>03580350 - 1    </td><td>TACS3</td><td align="center">95        </td><td align="right">0.5000</td>
+</tr>
+</table>
+<table style="float:right">
+<tr>
+<td></td>
+<td><label id="plnMain_rpTranscriptGroup_lblGPAValue_7"></label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditHeader_7">Total Credit:</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblTCreditValue_7">3.5000</label></td>
+</tr>
+</table><br/><br/>
+</td>
+</tr><tr>
+<tr>
+<td>
+<table class="sg-asp-table" id="plnMain_rpTranscriptGroup_tblCumGPAInfo">
+<tr class="sg-asp-table-header-row">
+<td><label id="plnMain_rpTranscriptGroup_LblGPATypeHeader">GPA Type</label></td>
+<td><label id="plnMain_rpTranscriptGroup_LblFGPAHeader">GPA</label></td>
+<td id="plnMain_rpTranscriptGroup_tdGPARankHeader"><label id="plnMain_rpTranscriptGroup_lblGPARankHeader">Rank</label></td>
+<td id="plnMain_rpTranscriptGroup_td_SCKTY00389675GPAQuartileHeader"><label id="plnMain_rpTranscriptGroup_lbl_SCKTY00389675GPAQuartileHeader">Quartile</label></td>
+</tr>
+<tr class="sg-asp-table-data-row" id="plnMain_rpTranscriptGroup_trGPA3">
+<td><span id="plnMain_rpTranscriptGroup_lblGPADescr3">Weighted GPA*</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGPACum3">4.6111</span></td>
+<td id="plnMain_rpTranscriptGroup_tdGPARank3"><span id="plnMain_rpTranscriptGroup_lblGPARank3"></span></td>
+<td id="plnMain_rpTranscriptGroup_td_SCKTY00389675GPAQuartile3"></td>
+</tr>
+<tr class="sg-asp-table-data-row" id="plnMain_rpTranscriptGroup_trGPA4">
+<td><span id="plnMain_rpTranscriptGroup_lblGPADescr4">Unweighted GPA*</span></td>
+<td><span id="plnMain_rpTranscriptGroup_lblGPACum4">3.9444</span></td>
+<td id="plnMain_rpTranscriptGroup_tdGPARank4"></td>
+<td id="plnMain_rpTranscriptGroup_td_SCKTY00389675GPAQuartile4"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+</tr></table>
+</div>
+</form>
+</div>
+</div>
+<script>
+        $(function () {
+            // Build the jQuery UI buttons
+            $('.sg-buttonset').buttonset();
+            $('.sg-button').button();
+            window.parent.$('.sg-legacy-iframe').height($('.sg-main-content').height()); // set the init size
+            // Increase length of smaller content windows to reduce cutoffs in dropdowns. 
+            var iframeHeight = window.parent.$('.sg-legacy-iframe').height(); 
+            if (iframeHeight < 450)
+            { window.parent.$('.sg-legacy-iframe').height($('.sg-main-content').height() + 200); }
+           
+        })
+    </script>
+</body>
+</html>

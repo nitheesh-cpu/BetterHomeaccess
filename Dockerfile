@@ -1,17 +1,18 @@
-FROM ubuntu:20.04
+FROM alpine:latest
 
 RUN apt-get update -y
-RUN apt-get install -y python3-pip python-dev
+RUN apt-get install -y python3-pip python3-dev
 
 # We copy just the requirements.txt first to leverage Docker cache
 COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
-RUN pip install -r requirements.txt
-
 COPY . /app
 
-ENTRYPOINT [ "python" ]
+RUN pip3 --no-cache-dir install -r requirements.txt
 
-CMD [ "python3" , "./app.py" ]
+EXPOSE 5000
+
+ENTRYPOINT [ "python3" ]
+CMD [ "/app.py" ]
