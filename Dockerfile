@@ -1,6 +1,9 @@
 FROM alpine:latest
 
-RUN apk add --no-cache python3-dev
+RUN apk add --no-cache --update \
+    python3 python3-dev gcc \
+    gfortran musl-dev \
+    libffi-dev openssl-dev
 RUN apk add py3-pip
 
 # We copy just the requirements.txt first to leverage Docker cache
