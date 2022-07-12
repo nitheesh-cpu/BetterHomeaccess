@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, session, flash, request
 import requests
 from bs4 import BeautifulSoup
-import numpy as np
 import termtables as tt
 
 views = Blueprint('views', __name__)
@@ -146,7 +145,18 @@ def getGrades(login_data):
             if (len(row) % 32 == 0) and (counter > 32):
                 data.append(row)
                 row = []
-        data = np.delete(data, [5, 6, 23, 24, 25, 26, 27, 28, 29, 30, 31], axis=1)
+        for j in data:
+            del j[31]
+            del j[30]
+            del j[29]
+            del j[28]
+            del j[27]
+            del j[26]
+            del j[25]
+            del j[24]
+            del j[23]
+            del j[6]
+            del j[5]
         finaldata['data'] = data
         return finaldata
 

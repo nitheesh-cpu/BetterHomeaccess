@@ -46,8 +46,8 @@ def login():
                 print(add)
                 flash('\nLogin Successful!', category='success')
                 res = redirect(url_for('views.home'))
-                res.set_cookie("username", value=user)
-                res.set_cookie("password", value=pswd)
+                res.set_cookie("username", value=user, expires=15)
+                res.set_cookie("password", value=pswd, expires=15)
                 return res
     return render_template("login.html")
 
