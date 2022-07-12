@@ -5,9 +5,7 @@ RUN apk add --no-cache --update \
     gfortran musl-dev \
     libffi-dev openssl-dev
 RUN apk add py3-pip
-RUN pip3 install NumPy==1.18.0
-RUN pip3 install python-dev-tools
-RUN pip3 install pandas
+
 
 # We copy just the requirements.txt first to leverage Docker cache
 COPY ./requirements.txt /app/requirements.txt

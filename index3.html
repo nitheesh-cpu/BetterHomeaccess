@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+
+<html>
+<head><title>
+	HomeAccess
+</title>
+<link href="/HomeAccess/Stylesheets/Themes/custom-theme/jquery?v=khU3GP_ixo8tMiLwXJEqkRywEE1c7SBpfpbj4KSDyXA1" rel="Stylesheet" type="text/css"/>
+<link href="../../eSchoolPLUSResource/GetEmbeddedStyle?file=CrossSite" rel="Stylesheet"/>
+<link href="../../eSchoolPLUSResource/GetEmbeddedStyle?file=ComboBox" rel="Stylesheet"/>
+<link href="../../Stylesheets/Common/font-awesome.css" rel="Stylesheet"/>
+<link href="../../Stylesheets/Site.css" rel="Stylesheet"/>
+<link href="../../Stylesheets/Frame/Frame.css" rel="stylesheet"/>
+<link href="../../Media/Themes/Base/Common/favicon.ico" rel="SHORTCUT ICON"/>
+<style>
+        .sg-asp-table-header-row,
+        .ui-jqgrid-view .ui-jqgrid-hdiv, 
+        .ui-jqgrid tr.ui-jqgrid-labels th  {
+	        background-color: #00427c;
+            color: #FFFFFF;
+        }
+    </style>
+<script src="/HomeAccess/Scripts/libs/jquery?v=kFkgd6hNofX_b_JGNSXAqVYLW6XzxJEd8j1YdcwKx3I1" type="text/javascript"></script>
+<script src="../../Scripts/libs/modernizr-2.8.3.js" type="text/javascript"></script>
+<script src="../../Scripts/Trirand/ui.multiselect.js" type="text/javascript"></script>
+<script src="../../Scripts/Trirand/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="../../Scripts/Trirand/jquery.jqGrid.js" type="text/javascript"></script>
+<script src="../../Scripts/libs/json2.js" type="text/javascript"></script>
+<script src="../../eSchoolPLUSResource/GetEmbeddedScript?file=SungardCommon" type="text/javascript"></script>
+<script src="../../eSchoolPLUSResource/GetEmbeddedScript?file=Combobox" type="text/javascript"></script>
+<script type="text/javascript">
+        $(function () {
+            parseForComboBoxes();
+        });
+    </script>
+<script type="text/javascript">
+        $(SunGard.Common.Init('/HomeAccess/'));
+    </script>
+<script src="OpenClassPopUp.js" type="text/javascript"></script>
+<script src="../Common/Validation.js" type="text/javascript"></script>
+<script type="text/javascript">
+        function PrintInterimProgressDetail() {
+            window.open("ReportCardDetailReport.aspx?rundate=" + $("#plnMain_ddlIPRDates").val() + "&type=ipr", null, "status=no,menubar=no,toolbar=no,top=50,left=50,width=600,height=450");
+                return false;
+        }
+    </script>
+</head>
+<body>
+<div class="sg-main-content" id="MainContent">
+<div class="sg-hac-content">
+<form action="./InterimProgress.aspx" id="fmMain" method="post">
+<input id="__VIEWSTATE" name="__VIEWSTATE" type="hidden" value="FnBrOhRa/4xczMh49p9sPXsE6Kp/2om38/1wLCtlDXYBhUpDlX/ev43FUCBVGDxAT+FhD/HUS0yC0kPy8Eav9uRFYZgpu1Xsz2n4RseT2531MbvPWJ3yLZ0SM/pK4JaYVS1tIoKYvxKEoS+7/Z5CtMFWgaI8g8xUCjv1mv0XbMO2A6DBXqhzNvRAdmAeOvgD1cyb8pmnBp2bJ0673yzVetloIADNlf8WjtfFLyRIKTEZUo4pW5OfsolcTns0UcSq0LVsYgvPo6n7SxAZw1ZK1fImIgTgsiNUxjXwvF8tGo45SJI59oPhLVKYdcplgu++KY9ykboQLBRGgmgdce4TcXZXt4qjYDhJgyZThsPePcKaGwqbZ6HhEVZm4QrZyvQjuwxLYZTEuPEXc+TwrYEtQAPWV5x391zMYRx2sfLU2Sb5l+h3f1+h9A5NKGY1uW6Uf9YEGvXFfU/puZYPe/a9WKTyt7v1TifFbTuYRPRO0DBwuVZUoGpwMc2izUQbjBshvAGPJQHwF/tW+cQ8bdoBcBw3kztDzfV9rI8PkJFCavJrlS0P29kAbON6ervWNay7"/>
+<input id="__VIEWSTATEGENERATOR" name="__VIEWSTATEGENERATOR" type="hidden" value="19DE7394"/>
+<input id="__EVENTVALIDATION" name="__EVENTVALIDATION" type="hidden" value="QuGyz9SW4sDLmmLxvfg1R9/oS3pvBKv3Lk25IAUVk5QgO73oaRYGAkrBDb3oHQTOHbJM4/CgbORNFeTHkmyKnbonpaF6QiXdvsA2We1H4Z8xIUyg5GBaMimpgiFa+YmL9D0yY3HI0mL3d0r0kvvRQj3N6hLfaEbXc80N5C/O+tme99Ffa+cHperKwbhNy7Ts0jLn74mznUysibbxsBRVghSDoU8YOZhfR+bynoFh2th41pkHybjirL7JBYXOo3uWo1gyNy2yuhG6nstqMhYJXY20tHI+m2WNbF0QTeGEKyPISmFEB3+hmb4+BEs4yzEu"/>
+<div class="sg-header">
+<input id="plnMain_hdnTitle" name="ctl00$plnMain$hdnTitle" type="hidden" value="Interim Progress Report For "/>
+<label class="sg-header-heading" id="plnMain_lblTitle">Interim Progress Report For Monday, May 2, 2022</label>
+</div>
+<div class="sg-content-grid">
+<div class="sg-content-grid-container sg-container-content">
+<label id="plnMain_lblSelectDates">View the Interim Progress Report for </label>
+<select class="sg-combobox" id="plnMain_ddlIPRDates" name="ctl00$plnMain$ddlIPRDates">
+<option value="9/7/2021 12:00:00 AM">09/07/2021</option>
+<option value="10/18/2021 12:00:00 AM">10/18/2021</option>
+<option value="12/6/2021 12:00:00 AM">12/06/2021</option>
+<option value="1/25/2022 12:00:00 AM">01/25/2022</option>
+<option value="3/21/2022 12:00:00 AM">03/21/2022</option>
+<option selected="selected" value="5/2/2022 12:00:00 AM">05/02/2022</option>
+</select>
+</div>
+<div class="sg-content-grid">
+
+<table border="1" cellspacing="0" class="sg-asp-table" id="plnMain_dgIPR" rules="all">
+<tr class="sg-asp-table-header-row">
+<td>Course</td><td>Description</td><td>Period</td><td>Teacher</td><td>Room</td><td>PRG</td><td>COM1</td><td>COM2</td><td>COM3</td><td>COM4</td><td>COM5</td>
+</tr><tr class="sg-asp-table-data-row">
+<td>2010B - 1    </td><td>
+<a href="#" onclick="OpenClassPopUp('2362863'); return false;">COMP SCI 3 DS KAP B</a>
+</td><td align="center">1            </td><td><a href="mailto:PaulMStroud@KATYISD.ORG">Stroud, Paul</a></td><td>1001 </td><td align="center">105       </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td>
+</tr><tr class="sg-asp-table-data-row">
+<td>0307B - 7    </td><td>
+<a href="#" onclick="OpenClassPopUp('2358071'); return false;">W HIST KAP B</a>
+</td><td align="center">2            </td><td><a href="mailto:MarvinWRathke@KATYISD.ORG">Rathke, Marvin</a></td><td>T-903</td><td align="center">90        </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td>
+</tr><tr class="sg-asp-table-data-row">
+<td>0256B - 1    </td><td>
+<a href="#" onclick="OpenClassPopUp('2359544'); return false;">PRE CALC KAP/GT B</a>
+</td><td align="center">3            </td><td><a href="mailto:JosephCMoore@KATYISD.ORG">Moore, Joseph</a></td><td>2241 </td><td align="center">101       </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td>
+</tr><tr class="sg-asp-table-data-row">
+<td>0144B - 37   </td><td>
+<a href="#" onclick="OpenClassPopUp('2530994'); return false;">ENG 2 KAP/GT B</a>
+</td><td align="center">4a           </td><td><a href="mailto:MonicaHFrazier@KATYISD.ORG">Frazier, Monica</a></td><td>1635 </td><td align="center">88        </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td>
+</tr><tr class="sg-asp-table-data-row">
+<td>6320B - 18   </td><td>
+<a href="#" onclick="OpenClassPopUp('2363149'); return false;">SPAN 2 B</a>
+</td><td align="center">5b           </td><td><a href="mailto:StephenJSaldana@KATYISD.ORG">Saldana, Stephen</a></td><td>1236 </td><td align="center">97        </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td>
+</tr><tr class="sg-asp-table-data-row">
+<td>0505 - 9    </td><td>
+<a href="#" onclick="OpenClassPopUp('2364360'); return false;">HLTH ED</a>
+</td><td align="center">6b           </td><td><a href="mailto:EricWNenninger@KATYISD.ORG">Nenninger, Eric</a></td><td>T3   </td><td align="center">96        </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td>
+</tr><tr class="sg-asp-table-data-row">
+<td>0474B - 7    </td><td>
+<a href="#" onclick="OpenClassPopUp('2361543'); return false;">CHEM KAP/GT B</a>
+</td><td align="center">7            </td><td><a href="mailto:SadafSnyder@katyisd.org">Snyder, Sadaf</a></td><td>2216 </td><td align="center">97        </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td><td align="center"> </td>
+</tr>
+</table>
+</div>
+<input id="plnMain_hdnMessage" name="ctl00$plnMain$hdnMessage" type="hidden" value="Interim Progress information could not be found for this date."/>
+<input id="plnMain_hdnMessage1" name="ctl00$plnMain$hdnMessage1" type="hidden" value="This student does not have any Interim Progress Reports for this school year."/>
+<input id="plnMain_hdnTitleNoRecord" name="ctl00$plnMain$hdnTitleNoRecord" type="hidden" value="Interim Progress Report"/>
+<br/>
+<div class="sg-asp-table-group" id="plnMain_tblComments">
+<div class="sg-header-group">
+<label id="plnMain_lblCommonLegend">Comment Legend</label>
+</div>
+<span id="plnMain_lblNoComments">There are no comments entered for this student.</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+<script>
+        $(function () {
+            // Build the jQuery UI buttons
+            $('.sg-buttonset').buttonset();
+            $('.sg-button').button();
+            window.parent.$('.sg-legacy-iframe').height($('.sg-main-content').height()); // set the init size
+            // Increase length of smaller content windows to reduce cutoffs in dropdowns. 
+            var iframeHeight = window.parent.$('.sg-legacy-iframe').height(); 
+            if (iframeHeight < 450)
+            { window.parent.$('.sg-legacy-iframe').height($('.sg-main-content').height() + 200); }
+           
+        })
+    </script>
+</body>
+</html>
