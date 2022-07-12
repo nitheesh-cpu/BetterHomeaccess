@@ -1,10 +1,8 @@
-FROM python:3-alpine3.9
-
-RUN apk add --no-cache --update \
+FROM ubuntu:20.04
+RUN apt-get install \
     python3 python3-dev gcc \
     gfortran musl-dev \
-    libffi-dev openssl-dev
-RUN apk add py3-pip
+    libffi-dev openssl-dev python3-pip
 
 
 # We copy just the requirements.txt first to leverage Docker cache
