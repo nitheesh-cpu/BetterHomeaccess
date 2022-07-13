@@ -13,8 +13,16 @@
   {% for row in range( content['data']|length )%}
       <tbody>
         <tr>
-          {% for element in content['data'][row] %}
-            <td>{{element}}</td>
+          {% for element in range( content['data'][row]|length )  %}
+          {% if (content['data'][row][element]|int >= 90) and (content['data'][row][element]|int <=105) and (element>=5) %}
+          <td class="bg-success">{{content['data'][row][element]}}</td>
+          {% elif (content['data'][row][element]|int >= 80) and (content['data'][row][element]|int <=105) and (element>=5) %}
+          <td class="bg-warning">{{content['data'][row][element]}}</td>
+          {% elif (content['data'][row][element]|int >= 10) and (content['data'][row][element]|int <=105) and (element>=5) %}
+          <td class="bg-danger">{{content['data'][row][element]}}</td>
+          {% else %}
+          <td>{{content['data'][row][element]}}</td>
+          {% endif %}
           {%endfor%}
         </tr>
       </tbody>

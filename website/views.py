@@ -99,7 +99,7 @@ def getClasses(login_data):
 
         finaldata['classes'] = classes
         finaldata['averages'] = averages
-
+        print(averages)
         assignmentstable = []
         assignmentsrow = []
 
