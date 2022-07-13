@@ -9,7 +9,7 @@
       <div class="accordion-header" id="heading{{i}}">
         <h1 class="mb-0 mt-0">
           <button class="accordion-button btn btn-link btn-lg text-dark font-weight-bold h1" type="button" data-toggle="collapse" data-target="#collapse{{i}}" aria-expanded="true" aria-controls="collapse{{i}}">
-            {{content['classes'][i]}} -  {{content['averages'][i]}}
+            {{content['classes'][i]}} - {{content['averages'][i]}}
           </button>
         </h1>
         {% if content['averages'][i]|int >= 90 %}
@@ -20,13 +20,13 @@
         <div class="progress">
           <div class="progress-bar bg-warning" role="progressbar" style="width: {{content['averages'][i]}}%" aria-valuenow="{{content['averages'][i]}}" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        {% elif content['averages'][i]|int >= 0 %}
+        {% elif content['averages'][i]|int >= 1 %}
         <div class="progress">
           <div class="progress-bar bg-danger" role="progressbar" style="width: {{content['averages'][i]}}%" aria-valuenow="{{content['averages'][i]}}" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        {% else %}
+        {% elif content['averages'][i]|int == 0 %}
         <div class="progress">
-          <div class="progress-bar bg-dark" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         {% endif %}
       </div>
